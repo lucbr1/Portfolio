@@ -22,7 +22,7 @@ const headerTemplate = document.createElement('template');
 headerTemplate.innerHTML = `
 <header class="site-header">
     <nav>
-        <img src="../resources/Name.webp" alt="Photo profil" class="describe-image" data-description="" />
+        <img src="../Resources/Name.webp" alt="Photo profil" class="describe-image" data-description="" />
         <div class="nav-links">
             <button class="nav-btn" type="button" data-url="profile.html">Profile</button>
             <button class="nav-btn nav-btn-secondary" type="button" data-url="log.html">Logout</button>
@@ -113,7 +113,7 @@ function injectHeaderTemplate() {
                 if (!target) return;
 
                 const normalized = target.replace(/^\/?screens\//i, '');
-                btn.setAttribute('data-url', `${root}/screens/${normalized}`);
+                btn.setAttribute('data-url', `${root}/Screens/${normalized}`);
             });
         }
         placeholder.replaceWith(clone);
