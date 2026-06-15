@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/console.css">
+    <title>Portfolio Lucas Brun</title>
+</head>
+<body>
+    <div class="console">
+        <div class="console-body">
+
+            <div class="left-controls">
+                <div class="stick stick-vertical">
+                    <span class="stick-indicator indicator-up" aria-hidden="true"></span>
+                    <span class="stick-indicator indicator-down" aria-hidden="true"></span>
+                </div>
+                <button class="system-btn home-btn" type="button" data-url="screens/home.html" aria-label="Bouton Home">
+                    <span>HOME</span>
+                </button>
+                <div class="dpad">
+                    <span class="up"></span>
+                    <span class="right"></span>
+                    <span class="down"></span>
+                    <span class="left"></span>
+                </div>
+            </div>
+
+            <div class="screen">
+                <iframe src="screens/log.html"></iframe>
+            </div>
+
+            <div class="right-controls">
+                <div class="abxy">
+                    <span class="btn a"></span>
+                    <span class="btn b"></span>
+                    <span class="btn x"></span>
+                    <span class="btn y"></span>
+                </div>
+                <button class="system-btn power-btn" type="button" aria-label="Bouton Power">
+                    <span>POWER</span>
+                </button>
+                <div class="stick stick-horizontal">
+                    <span class="stick-indicator indicator-left" aria-hidden="true"></span>
+                    <span class="stick-indicator indicator-right" aria-hidden="true"></span>
+                </div>
+            </div>
+
+            <div class="help-panel" role="status" aria-live="polite">
+                <h3>Raccourcis pour les jeux</h3>
+                <ul>
+                    <li><strong>A</strong> → Vidéo</li>
+                    <li><strong>B</strong> → Contexte</li>
+                    <li><strong>X</strong> → Missions</li>
+                    <li><strong>Y</strong> → Conclusion</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="js/console.js"></script>
+</body>
+</html>

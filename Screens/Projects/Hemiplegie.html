@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Rééducation de l'hémiplégie par thérapie miroir</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/screens.css">
+</head>
+
+<body>
+  <div data-include="site-header"></div>
+
+  <main>
+    <h1>Rééducation de l'hémiplégie <br> Développement d’une application VR</h1>
+
+    <a class="nav-btn download-btn" href="https://github.com/JulienSauguesEyraud/HemiplegieVR" target="_blank">
+      Download
+    </a>
+
+    <section class="content-grid">
+
+      <div class="panel video-container" id="section-demo">
+        <video controls>
+          <source src="../../Resources/Hemiplegie/Hemiplegie.webm" type="video/webm">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+      </div>
+
+      <div class="panel summary-panel" id="section-en-bref">
+        <h2>En bref</h2>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <p><strong>Application VR</strong> (Unity) servant d'outil de rééducation pour les patients hémiplégiques grâce à la <strong>thérapie miroir.</strong></p>
+          </div>
+          <div class="summary-card">
+            <p>Collaboration avec l'hôpital <strong>Emile-Roux</strong> du Puy-en-Velay.</p>
+          </div>
+          <div class="summary-card">
+            <p>Utilisation des <strong>Quest 3</strong> et de leur système de suivi des mouvements (hand tracking).</p>
+          </div>
+          <div class="summary-card">
+            <p>Projet mené en binôme sur <strong>100h</strong> dans le cadre d'un projet de BUT informatique graphique.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-container">
+        <div
+          class="slot-image describe-image zoomable"
+          style="background-image: url('../../Resources/Hemiplegie/global.webp');"
+          data-description="Image présentant l'application VR de rééducation de l'hémiplégie, avec une vue globale de l'environnement virtuel"
+          aria-label="Image présentant l'application VR de rééducation de l'hémiplégie, avec une vue globale de l'environnement virtuel"
+          role="img">
+        </div>
+    </div>
+
+      <div class="panel context" id="section-contexte">
+        <h2>Contexte</h2>
+        <div>
+            <p>Ce projet a été effectué durant mon quatrième semestre de BUT informatique graphique 
+              en collaboration avec des ergothérapeutes de l'hôpital <strong>Emile-Roux</strong> du Puy-en-Velay.<br><br>
+              L'objectif était de développer une <strong>application VR</strong> pour aider à la <strong>rééducation des patients hémiplégiques,</strong> 
+              en utilisant le principe de la <strong>thérapie miroir.</strong> Cette thérapie consiste à utiliser les mouvements du côté sain du patient 
+              pour stimuler la récupération du côté affecté. <br><br>
+              Nous avons utilisé les <strong>Meta Quest 3</strong> pour leur système de suivi des mouvements <strong>(hand tracking)</strong> 
+              afin de permettre aux patients de réaliser des exercices de rééducation en imitant les mouvements du côté sain. <br><br>
+              Il a représenté environ <strong>100h</strong> de travail, réparties entre la recherche et le développement.</p>
+            </p>
+        </div>
+      </div>
+
+      <article class="step-slider">
+        <span class="step-arrow step-arrow-left">&#8592;</span>
+        <div class="step-img describe-image" data-description=""></div>
+        <div class="panel step-content">
+            <h2 class="step-title"></h2>
+            <p class="step-description"></p>
+        </div>
+        <span class="step-arrow step-arrow-right">&#8594;</span>
+      </article>
+      <script type="application/json" data-role="steps">
+        [
+          {
+            "title": "Tracking des mouvements",
+            "description": "Suivi du mouvement des mains à l'aide du <strong>hand tracking</strong> et <strong>réflexion</strong> de ces mouvements sur le côté affecté par l'hémiplégie.",
+            "img": "../../Resources/Hemiplegie/MVT_libre.webp",
+            "imgDescription": "Image présentant le tracking des mouvements de la main dans l'application VR"
+          },
+          {
+            "title": "Manipulation d'objets virtuels",
+            "description": "Ajout d'une activité permettant aux patients de <strong>manipuler des objets</strong> dans l'environnement virtuel, pour diversifier les exercices.",
+            "img": "../../Resources/Hemiplegie/Objets.webp",
+            "imgDescription": "Image présentant la manipulation d'objets virtuels dans l'application VR"
+          },
+          {
+            "title": "Conception de l'interface graphique du soignant",
+            "description": "Développement d'une interface pour le soignant, lui permettant de <strong>diriger la séance de rééducation</strong> en la paramétrant de manière dynamique.",
+            "img": "../../Resources/Hemiplegie/UI.webp",
+            "imgDescription": "Image présentant l'interface graphique du soignant pour diriger la séance de rééducation"
+          },
+          {
+            "title": "Ajout de fonctionnalités d'accessibilité",
+            "description": "Gestion automatique de la <strong>longueur du bras</strong> et possibilité de choisir la <strong>teinte de peau</strong> afin de correspondre le plus possible au patient.",
+            "img": "../../Resources/Hemiplegie/UI_peau.webp",
+            "imgDescription": "Image présentant la fonctionnalité de choix de la teinte de peau dans l'application VR"
+          }   
+        ]
+      </script>
+
+      <div class="panel missions" id="section-missions">
+        <h2>Missions</h2>
+        <div class="missions-columns">
+          <ul>
+            <li>Réaliser une <strong>analyse des besoins</strong>  des utilisateurs hémiplégiques.</li>
+            <li>Rédiger un <strong>cahier des charges.</strong></li>
+            <li>Développer une <strong>interface graphique</strong> pour le soignant, afin de diriger la séance de rééducation.</li>
+          </ul>
+          <ul>
+            <li>Concevoir un <strong>environnement de simulation agréable.</strong></li>
+            <li><strong>Tracker les mouvements</strong> de la mains saine pour simuler les mouvements du côté affecté.</li>
+            <li>Permettre à l'utilisateur de <strong>manipuler des objets virtuels.</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <article class="missions-skills" id="section-competences">
+        <div class="panel skills">
+          <h2>Compétences</h2>
+          <ul>
+            <li>Analyser les <strong>besoins</strong> informatiques.</li>
+            <li>Analyser, exploiter, structurer des <strong>données.</strong></li>
+            <li>Réaliser des <strong>études et développements informatiques.</strong></li>
+            <li>Concevoir et développer une <strong>solution digitale.</strong></li>
+            <li>Création et gestion d’<strong>interfaces et d'expériences utilisateur.</strong></li>
+            <li>Rédiger un cahier des charges, des <strong>spécifications techniques.</strong></li>
+          </ul>
+        </div>
+
+        <div class="panel skills">
+          <h2>Compétences académiques</h2>
+          <ul>
+            <li>Réaliser un développement d’<strong>application.</strong></li>
+            <li><strong>Optimiser</strong> des applications.</li>
+            <li>Gérer des <strong>données</strong> de l’information.</li>
+            <li>Conduire un projet.</li>
+            <li>Collaborer au sein d’une <strong>équipe informatique.</strong></li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="panel conclusion conclusion-panel" id="section-conclusion">
+        <h2>Conclusion</h2>
+        <div>
+            <p>Ce projet a été une opportunité unique de mettre l'informatique graphique <strong>au service de la santé.</strong> <br><br>
+              Le développement de cette application de thérapie miroir en réalité virtuelle m'a confronté à des défis d'<strong>accessibilité majeurs.</strong>
+              J'ai pris conscience que l'expérience utilisateur (UX) ne se limite pas à l'esthétique, 
+              mais implique une adaptation fine aux <strong>caractéristiques des utilisateurs finaux </strong>(calibration de la longueur des bras, choix de la teinte de peau).<br><br><br> 
+              Concevoir en parallèle une interface dynamique pour le personnel soignant m'a permis de comprendre 
+              l'importance de faire le pont entre complexité technique et <strong>utilisabilité en milieu professionnel.</strong></p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="../../js/screens.js"></script>
+</body>
+</html>

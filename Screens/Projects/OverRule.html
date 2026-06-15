@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>OverRule</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/screens.css">
+</head>
+
+<body>
+  <div data-include="site-header"></div>
+
+  <main>
+    <h1>OverRule<br>jeu-vidéo multijoueur 2D</h1>
+
+    <button class="nav-btn download-btn" data-url="" target="_blank" disabled >
+      Under development
+    </button>
+
+    <section class="content-grid">
+
+      <div class="panel video-container" id="section-demo">
+        <video controls>
+          <source src="../../Resources/OverRule/teaser.webm" type="video/webm">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+      </div>
+
+      <div class="panel summary-panel" id="section-en-bref">
+        <h2>En bref</h2>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <p><strong>Jeu-vidéo multijoueur 2D</strong> (Unity) de type "Party game" accessible et éco-responsable.</p>
+          </div>
+          <div class="summary-card">
+            <p>Bibliothèque multijoueur : <strong>Netcode for GameObjects</strong> pour les échanges de données en temps réel.</p>
+          </div>
+          <div class="summary-card">
+            <p>Sprites en <strong>pixel art</strong> pour un style minimaliste et coloré.</p>
+          </div>
+          <div class="summary-card">
+            <p>Projet mené en groupe sur <strong>1200h</strong> dans le cadre d'un projet tutoré du BUT informatique graphique.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-container">
+        <div
+          class="slot-image describe-image zoomable"
+          style="background-image: url('../../Resources/OverRule/logo.webp');"
+          data-description="Logo du projet OverRule"
+          aria-label="Logo du projet OverRule"
+          role="img">
+        </div>
+    </div>
+
+      <div class="panel context" id="section-contexte">
+        <h2>Contexte</h2>
+        <div>
+            <p>Ce projet a été effectué dans le cadre du <strong>projet tutoré</strong>
+            de deuxième année du <strong>BUT informatique graphique</strong> en groupe de cinq.<br><br>
+            Nous devions réaliser un jeu-vidéo <strong>accessible et éco-responsable</strong>.
+            Pour ce projet le moteur <strong>Unity</strong> a été utilisé.<br><br>
+            Cette application permet au joueur de prendre part à 8 <strong>mini-jeux multijoueurs</strong> 
+            on peut également participer à 4 d'entre eux en <strong>solo</strong> pour profiter du jeu hors connexion. 
+            Durant une partie, les joueurs peuvent utiliser des <strong>jokers</strong> qui influenceront l'attribution des points à la fin d'un mini-jeu.<br><br>
+            Il représente environ <strong>1200h</strong> de travail.</p>
+        </div>
+      </div>
+
+      <article class="step-slider">
+        <span class="step-arrow step-arrow-left">&#8592;</span>
+        <div class="step-img describe-image" data-description=""></div>
+        <div class="panel step-content">
+            <h2 class="step-title"></h2>
+            <p class="step-description"></p>
+        </div>
+        <span class="step-arrow step-arrow-right">&#8594;</span>
+      </article>
+      <script type="application/json" data-role="steps">
+        [
+          {
+            "title": "Mise en place du multijoueur",
+            "description": "Installation et configuration de <strong>Netcode for GameObjects</strong> et de l'UI nécessaire au bon déroulement d'une partie (menus, paramètres, classements ...).",
+            "img": "../../Resources/OverRule/MenuPrincipal.webp",
+            "imgDescription": "Image présentant le menu principal du jeu"
+          },
+          {
+            "title": "Ajout des jokers",
+            "description": "Conception de <strong>9 jokers.</strong> 4 d'entre eux affectent directement le <strong>classement</strong>, 4 autres affectent les <strong>points attribués à la fin d'un mini-jeu</strong> et le dernier est un <strong>joker mystère.</strong>",
+            "img": "../../Resources/OverRule/Jokers.webp",
+            "imgDescription": "Image présentant la phase où l'on choisit un joker parmi les 3 proposés"
+          },
+          {
+            "title": "Conception de Tank Breaker",
+            "description": "Un mini-jeu dans lequel les joueurs pilotent un <strong>tank</strong> et doivent détruire les tanks ennemis.",
+            "img": "../../Resources/OverRule/TankBreaker.webp",
+            "imgDescription": "Image présentant une partie de Tank Breaker"
+          },
+          {
+            "title": "Conception de SpaceShips Trials",
+            "description": "Un mini-jeu reprenant le concept de 'flappy bird' où les joueurs pilotes des <strong>vaisseaux spatiaux.</strong>",
+            "img": "../../Resources/OverRule/SpaceShipsTrials.webp",
+            "imgDescription": "Image présentant une partie de SpaceShips Trials"
+          },
+          {
+            "title": "Conception de Time To Exit",
+            "description": "Un mini-jeu de <strong>plateforme</strong> dans lequel les joueurs doivent atteindre la sortie le plus rapidement possible.",
+            "img": "../../Resources/OverRule/TimeToExit.webp",
+            "imgDescription": "Image présentant une partie de Time To Exit"
+          },
+          {
+            "title": "Conception de OverRoad",
+            "description": "Un mini-jeu de <strong>course</strong> dans lequel les joueurs pilotent des <strong>voitures.</strong>",
+            "img": "../../Resources/OverRule/OverRoad.webp",
+            "imgDescription": "Image présentant une partie de OverRoad"
+          },  
+          {
+            "title": "Conception de Territory War",
+            "description": "Un mini-jeu dans lequel les joueurs doivent atteindre une <strong>zone mouvante</strong> le plus rapidement possible.",
+            "img": "../../Resources/OverRule/TerritoryWar.webp",
+            "imgDescription": "Image présentant une partie de Territory War"
+          },
+          {
+            "title": "Conception de Cursed Deck",
+            "description": "Un mini-jeu de <strong>cartes</strong> dans lequel les joueurs doivent chosir des cartes, face cachée, avec des bonus ou malus.",
+            "img": "../../Resources/OverRule/CursedDeck.webp",
+            "imgDescription": "Image présentant une partie de Cursed Deck"
+          },
+          {
+            "title": "Conception de Light Trails",
+            "description": "Un mini-jeu de <strong>snake</strong> dans lequel les joueurs pilotent des <strong>motos futuristes.</strong>",
+            "img": "../../Resources/OverRule/LightTrails.webp",
+            "imgDescription": "Image présentant une partie de Light Trails"
+          },
+          {
+            "title": "Conception de Strike Arena",
+            "description": "Un mini-jeu dans lequel les joueurs s'affrontent dans une arène en utilisant différentes <strong>armes.</strong>",
+            "img": "../../Resources/OverRule/StrikeArena.webp",
+            "imgDescription": "Image présentant une partie de Strike Arena"
+          },
+          {
+            "title": "Mise en place du mode solo",
+            "description": "Mise en place d'un mode solo permettant aux joueurs de jouer à certains mini-jeux en <strong>hors ligne</strong>(Time to Exit, Tank Breaker, SpaceShips Trials, OverRoad).",
+            "img": "../../Resources/OverRule/solo.webp",
+            "imgDescription": "Image présentant le menu de sélection des mini-jeux en mode solo"
+          }
+        ]
+      </script>
+
+      <div class="panel missions" id="section-missions">
+        <h2>Missions</h2>
+        <div class="missions-columns">
+          <ul>
+            <li>Mettre en place le communication <strong>multi-joueurs.</strong></li>
+            <li>Développer les <strong>mini-jeux</strong>.</li>
+            <li>Concevoir et implémenter <strong>les jokers.</strong></li>
+          </ul>
+          <ul>
+            <li>Mettre en place le <strong>classement</strong> multijoueur.</li>
+            <li>Gérer les <strong>paramètres</strong> et configurations des utilisateurs.</li>
+            <li><strong>Enregistrer et stocker</strong> les préférences des utilisateurs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <article class="missions-skills" id="section-competences">
+        <div class="panel skills">
+          <h2>Compétences</h2>
+          <ul>
+            <li>Analyser les <strong>besoins</strong> informatiques.</li>
+            <li>Rédiger un cahier des charges, des <strong>spécifications techniques.</strong></li>
+            <li>Concevoir l'architecture d'un système, <strong>d'un réseau.</strong></li>
+            <li>Analyser, exploiter, structurer des données.</li>
+            <li>Assembler des composants logiciels.</li>
+            <li><strong>Optimiser</strong> les processus de qualité pour assurer la fiabilité des logiciels.</li>
+          </ul>
+        </div>
+
+        <div class="panel skills">
+          <h2>Compétences académiques</h2>
+          <ul>
+            <li>Réaliser un développement d’<strong>application.</strong></li>
+            <li><strong>Optimiser</strong> des applications.</li>
+            <li>Administrer des systèmes informatiques communicants complexes.</li>
+            <li>Gérer des <strong>données</strong> de l’information.</li>
+            <li>Conduire un projet.</li>
+            <li>Collaborer au sein d’une <strong>équipe informatique.</strong></li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="panel conclusion" id="section-conclusion">
+        <h2>Conclusion</h2>
+        <div>
+            <p>La réalisation d'OverRule a été l'expérience la plus structurante de mon cursus.<br><br>
+               Avec plus de <strong>1200h</strong> de travail en équipe, ce projet m'a confronté aux réalités de la production d'un logiciel complexe, 
+               de la conception réseau avec <strong>Netcode for GameObjects</strong> à l'optimisation des performances sous Unity.<br><br>
+               Au-delà du défi technique que représente la synchronisation <strong>multijoueur en temps réel,</strong> 
+               j'ai développé une réelle expertise dans la <strong>coordination d'équipe</strong> et l'utilisation de <strong>méthodes agiles.</strong> <br><br>
+               Ce projet confirme ma capacité à concevoir des architectures logicielles robustes 
+               tout en respectant des contraintes fortes comme <strong>l'éco-conception</strong> et <strong>l'accessibilité.</strong></p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="../../js/screens.js"></script>
+</body>
+</html>

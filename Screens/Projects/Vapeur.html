@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vapeur</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/screens.css">
+</head>
+
+<body>
+  <div data-include="site-header"></div>
+
+  <main>
+    <h1>Vapeur<br>Bibliothèque de jeux</h1>
+
+    <a class="nav-btn download-btn" href="https://github.com/lucbr1/Vapeur" target="_blank">
+      Download
+    </a>
+
+    <section class="content-grid">
+
+      <div class="panel video-container" id="section-demo">
+        <video controls>
+          <source src="../../Resources/Vapeur/Presentation.webm" type="video/webm">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+      </div>
+
+      <div class="panel summary-panel" id="section-en-bref">
+        <h2>En bref</h2>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <p><strong>Application full stack</strong> (Node.js et Handlebars) représentant une bibliothèque de jeux vidéo.</p>
+          </div>
+          <div class="summary-card">
+            <p>Backend : <strong>Node.js et Express.js</strong> pour la gestion des requêtes et la communication avec la base de données.</p>
+          </div>
+          <div class="summary-card">
+            <p>Frontend : <strong>Handlebars</strong> pour le rendu des pages HTML en templates.</p>
+          </div>
+          <div class="summary-card">
+            <p>Projet mené en groupe sur <strong>30h</strong> dans le cadre d'un projet de web du BUT informatique graphique.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-container">
+        <div
+          class="slot-image describe-image zoomable"
+          style="background-image: url('../../Resources/Vapeur/logo.webp');"
+          data-description="Logo de Vapeur"
+          aria-label="Logo de Vapeur"
+          role="img">
+        </div>
+    </div>
+
+      <div class="panel context" id="section-contexte">
+        <h2>Contexte</h2>
+        <div>
+            <p>Ce projet a été effectué dans le cadre d'un <strong>projet de web</strong>
+            du troisième semestre de <strong>BUT informatique graphique</strong> en groupe de trois.<br><br>
+            Nous devions réaliser une <strong>application web full stack</strong> en utilisant les langages <strong>HTML, CSS, JavaScript.</strong>
+            Nous devions utiliser <strong>Node.js, Express.js, Prisma avec SQLite et Handlebars.</strong><br><br>
+            Cette application permet à l'utilisateur de gérer sa bibliothèque de jeux vidéo en utilisant les méthodes <strong>CRUD (Créer, Lire, Mettre à jour, Supprimer).</strong> <br><br>
+            Il a représenté environ <strong>30h</strong> de travail.</p>
+        </div>
+      </div>
+
+      <article class="step-slider">
+        <span class="step-arrow step-arrow-left">&#8592;</span>
+        <div class="step-img describe-image" data-description=""></div>
+        <div class="panel step-content">
+            <h2 class="step-title"></h2>
+            <p class="step-description"></p>
+        </div>
+        <span class="step-arrow step-arrow-right">&#8594;</span>
+      </article>
+      <script type="application/json" data-role="steps">
+        [
+          {
+            "title": "Mise en place de l'environnement de travail",
+            "description": "Création de la page d'accueil avec un <strong>header</strong> permettant de naviguer vers les différentes pages de l'application. On peut visualiser les jeux <strong>mis en avant.</strong>",
+            "img": "../../Resources/Vapeur/Accueil.webp",
+            "imgDescription": "Page d'accueil de Vapeur"
+          },
+          {
+            "title": "Gestion des genres de jeux vidéo",
+            "description": "Création d'une page permettant à l'utilisateur de <strong>visualiser les genres de jeux vidéo</strong> dans la base de données.",
+            "img": "../../Resources/Vapeur/Genres.webp",
+            "imgDescription": "Page des genres de jeux vidéo"
+          },
+          {
+            "title": "Gestion des éditeurs de jeux vidéo",
+            "description": "Création d'une page permettant à l'utilisateur de <strong>visualiser les éditeurs de jeux vidéo</strong> dans la base de données.",
+            "img": "../../Resources/Vapeur/Editeurs.webp",
+            "imgDescription": "Page des éditeurs de jeux vidéo"
+          },
+          {
+            "title": "Gestion des jeux vidéo",
+            "description": "Création d'une page permettant à l'utilisateur de <strong>visualiser les jeux vidéo</strong> dans la base de données.",
+            "img": "../../Resources/Vapeur/Jeux.webp",
+            "imgDescription": "Page des jeux vidéo"
+          },
+          {
+            "title": "CRUD sur les jeux et éditeurs",
+            "description": "Ajout des fonctionnalités de <strong>création, modification et suppression</strong> pour les jeux et les éditeurs de jeux vidéo. On peut associer un jeu à un éditeur et à un genre.",
+            "img": "../../Resources/Vapeur/Creation.webp",
+            "imgDescription": "Page de création d'un jeu vidéo"
+          }  
+        ]
+      </script>
+
+      <div class="panel missions" id="section-missions">
+        <h2>Missions</h2>
+        <div class="missions-columns">
+          <ul>
+            <li>Intégrer la <strong>base de données</strong> à l'application.</li>
+            <li>Gérer le <strong>routage</strong> des requêtes.</li>
+            <li>Sécuriser l'application en préservant l'<strong>intégrité des données.</strong></li>
+          </ul>
+          <ul>
+            <li>Afficher <strong> dynamiquement</strong> les données de la base de données.</li>
+            <li>Permettre à l’utilisateur d’<strong>interagir</strong> avec chaque élément.</li>
+            <li>Mettre en place les méthodes <strong>CRUD.</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <article class="missions-skills" id="section-competences">
+        <div class="panel skills">
+          <h2>Compétences</h2>
+          <ul>
+            <li>Analyser les <strong>besoins</strong> informatiques.</li>
+            <li>Configurer des <strong>serveurs</strong> web et gérer le déploiement.</li>
+            <li>Développer une application en lien avec une <strong>base de données.</strong></li>
+            <li>Gérer les bases de données et assurer leur <strong>intégrité.</strong></li>
+            <li>Intégrer des éléments graphiques et visuels en respectant les standards web.</li>
+            <li>Assurer la <strong>compatibilité</strong> des applications sur différents navigateurs.</li>
+          </ul>
+        </div>
+
+        <div class="panel skills">
+          <h2>Compétences académiques</h2>
+          <ul>
+            <li>Réaliser un développement d’<strong>application.</strong></li>
+            <li><strong>Optimiser</strong> des applications.</li>
+            <li>Gérer des <strong>données</strong> de l’information.</li>
+            <li>Conduire un projet</li>
+            <li>Collaborer au sein d’une <strong>équipe informatique.</strong></li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="panel conclusion" id="section-conclusion">
+        <h2>Conclusion</h2>
+        <div>
+            <p>Ce projet a été une étape déterminante dans ma compréhension du développement <strong>Full Stack.</strong> 
+              La mise en place d'un système CRUD complet m'a permis de lier concrètement la <strong>logique serveur</strong> (Node.js) 
+              à la <strong>persistance des données</strong> avec Prisma. <br><br>
+              La principale difficulté a résidé dans la <strong>gestion des relations</strong> entre les jeux, les genres et les éditeurs, 
+              ce qui a renforcé ma rigueur dans la structuration des bases de données. <br><br> 
+              Cette expérience m'a apporté une <strong>vision globale d'une application web,</strong> de la base de données jusqu'au rendu dynamique avec Handlebars.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="../../js/screens.js"></script>
+</body>
+</html>
