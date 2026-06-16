@@ -62,6 +62,16 @@ body {
     z-index: 1;
 }
 
+.kastor-badge {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    width: 150px;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+}
+
 .help-panel {
     position: absolute;
     bottom: 24px;
@@ -523,6 +533,12 @@ body {
 
     .console-body {
         gap: 24px;
+    }
+
+    .kastor-badge {
+        left: 16px;
+        bottom: 16px;
+        width: 110px;
     }
 
     .left-controls,
