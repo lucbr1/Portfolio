@@ -523,8 +523,8 @@ body {
 
     .console-body {
         flex-direction: row;
-        gap: 8px;
-        padding: 10px 8px;
+        gap: 6px;
+        padding: 6px 4px;
     }
 
     .left-controls,
@@ -542,6 +542,7 @@ body {
         order: 0;
         flex: 1 1 auto;
         width: auto;
+        height: min(78vh, 520px);
         min-width: 0;
         min-height: 0;
         max-width: none;
@@ -707,7 +708,7 @@ body {
 
     .console-body {
         gap: 6px;
-        padding: 8px 6px;
+        padding: 4px 2px;
     }
 
     .left-controls,
@@ -720,6 +721,7 @@ body {
     }
 
     .screen {
+        height: min(78vh, 420px);
         border-width: 3px;
         border-radius: 18px;
     }
