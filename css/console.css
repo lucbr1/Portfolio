@@ -503,12 +503,16 @@ body {
 
 @media (max-width: 1100px) and (orientation: landscape) {
     body {
-        min-height: 100svh;
-        padding: 8px;
+        height: 100dvh;
+        min-height: 0;
+        padding: 0;
         overflow: hidden;
+        display: grid;
+        place-items: center;
     }
 
     .console {
+        margin: 0;
         max-width: none;
         padding: 12px;
         border-radius: 26px;
@@ -552,8 +556,8 @@ body {
     }
 
     .stick {
-        width: clamp(46px, 7vw, 64px);
-        height: clamp(46px, 7vw, 64px);
+        width: clamp(40px, 6vw, 56px);
+        height: clamp(40px, 6vw, 56px);
     }
 
     .dpad,
@@ -565,6 +569,14 @@ body {
 
     .help-panel {
         display: none;
+    }
+
+    .kastor-badge {
+        left: 50%;
+        right: auto;
+        bottom: 4px;
+        width: 64px;
+        transform: translateX(-50%);
     }
 }
 
@@ -714,8 +726,8 @@ body {
     }
 
     .stick {
-        width: clamp(38px, 6vw, 52px);
-        height: clamp(38px, 6vw, 52px);
+        width: clamp(30px, 5vw, 42px);
+        height: clamp(30px, 5vw, 42px);
     }
 
     .dpad,
@@ -727,7 +739,7 @@ body {
         left: 50%;
         right: auto;
         bottom: 4px;
-        width: 72px;
+        width: 56px;
         transform: translateX(-50%);
     }
 }
