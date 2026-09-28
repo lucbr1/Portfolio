@@ -505,12 +505,15 @@ body {
     body {
         min-height: 100svh;
         padding: 8px;
+        overflow: hidden;
     }
 
     .console {
         max-width: none;
         padding: 12px;
         border-radius: 26px;
+        transform: scale(0.9);
+        transform-origin: center center;
     }
 
     .console-body {
