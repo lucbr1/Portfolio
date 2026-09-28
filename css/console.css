@@ -503,10 +503,11 @@ body {
 
 @media (max-width: 1100px) and (orientation: landscape) {
     body {
-        height: 100dvh;
-        min-height: 0;
+        min-height: 100svh;
+        height: auto;
         padding: 0;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
         display: grid;
         place-items: center;
     }
@@ -516,7 +517,7 @@ body {
         max-width: none;
         padding: 12px;
         border-radius: 26px;
-        transform: scale(0.8);
+        transform: scale(0.85);
         transform-origin: center center;
     }
 
@@ -560,6 +561,11 @@ body {
         height: clamp(40px, 6vw, 56px);
     }
 
+    .stick .stick-thumb {
+        width: 60%;
+        height: 60%;
+    }
+
     .dpad,
     .abxy {
         transform: scale(0.6);
@@ -575,7 +581,7 @@ body {
         left: 50%;
         right: auto;
         bottom: 4px;
-        width: 64px;
+        width: 58px;
         transform: translateX(-50%);
     }
 }
@@ -696,7 +702,7 @@ body {
     .console {
         padding: 10px;
         border-radius: 22px;
-        transform: scale(0.75);
+        transform: scale(0.82);
     }
 
     .console-body {
@@ -730,6 +736,11 @@ body {
         height: clamp(30px, 5vw, 42px);
     }
 
+    .stick .stick-thumb {
+        width: 60%;
+        height: 60%;
+    }
+
     .dpad,
     .abxy {
         transform: scale(0.55);
@@ -739,7 +750,7 @@ body {
         left: 50%;
         right: auto;
         bottom: 4px;
-        width: 56px;
+        width: 50px;
         transform: translateX(-50%);
     }
 }
