@@ -677,6 +677,52 @@ body {
 }
 
 @media (max-width: 700px) and (orientation: landscape) {
+    body {
+        padding: 4px;
+    }
+
+    .console {
+        padding: 10px;
+        border-radius: 22px;
+        transform: scale(0.75);
+    }
+
+    .console-body {
+        gap: 6px;
+        padding: 8px 6px;
+    }
+
+    .left-controls,
+    .right-controls {
+        width: clamp(50px, 9vw, 72px);
+        height: min(62vh, 300px);
+        gap: 6px;
+        padding: 6px 4px;
+        border-radius: 14px;
+    }
+
+    .screen {
+        border-width: 3px;
+        border-radius: 18px;
+    }
+
+    .system-btn {
+        width: 100%;
+        max-width: 64px;
+        height: 28px;
+        font-size: 0.52rem;
+    }
+
+    .stick {
+        width: clamp(38px, 6vw, 52px);
+        height: clamp(38px, 6vw, 52px);
+    }
+
+    .dpad,
+    .abxy {
+        transform: scale(0.55);
+    }
+
     .kastor-badge {
         left: 50%;
         right: auto;
