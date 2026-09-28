@@ -517,7 +517,7 @@ body {
         max-width: none;
         padding: 12px;
         border-radius: 26px;
-        transform: scale(1);
+        transform: scale(1.2);
         transform-origin: center center;
     }
 
@@ -703,7 +703,7 @@ body {
     .console {
         padding: 10px;
         border-radius: 22px;
-        transform: scale(0.95);
+        transform: scale(1.15);
     }
 
     .console-body {
