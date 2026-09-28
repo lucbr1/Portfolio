@@ -16,6 +16,10 @@ body {
     color: #f5f5f5;
 }
 
+.orientation-notice {
+    display: none;
+}
+
 /* --- Console --- */
 .console {
     width: 100%;
@@ -493,31 +497,126 @@ body {
     }
 
     .console-body {
-        flex-direction: column;
         align-items: center;
+    }
+}
+
+@media (max-width: 1100px) and (orientation: landscape) {
+    body {
+        min-height: 100svh;
+        padding: 12px;
+    }
+
+    .console {
+        max-width: none;
+        padding: 16px;
+        border-radius: 32px;
+    }
+
+    .console-body {
+        flex-direction: row;
+        gap: 12px;
+        padding: 16px 12px;
     }
 
     .left-controls,
     .right-controls {
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: center;
-        gap: 50px;
-    }
-
-    .left-controls {
-        order: 1;
+        width: clamp(64px, 12vw, 100px);
+        height: min(72vh, 430px);
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 8px;
+        border-radius: 20px;
     }
 
     .screen {
-        order: 2;
-        max-width: 900px;
-        width: 100%;
+        order: 0;
+        flex: 1 1 auto;
+        width: auto;
+        min-width: 0;
+        min-height: 0;
+        max-width: none;
     }
 
-    .right-controls {
-        order: 3;
+    .system-btn {
+        width: 100%;
+        max-width: 86px;
+        height: 38px;
+        font-size: 0.65rem;
+    }
+
+    .stick {
+        width: clamp(54px, 8vw, 76px);
+        height: clamp(54px, 8vw, 76px);
+    }
+
+    .dpad,
+    .abxy {
+        transform: scale(0.72);
+        transform-origin: center;
+        flex-shrink: 0;
+    }
+
+    .help-panel {
+        display: none;
+    }
+}
+
+@media (max-width: 1100px) and (orientation: portrait) {
+    body {
+        min-height: 100svh;
+        padding: 24px;
+    }
+
+    .console {
+        display: none;
+    }
+
+    .orientation-notice {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        max-width: 420px;
+        text-align: center;
+    }
+
+    .orientation-icon {
+        color: #fa9939;
+        font-size: 4rem;
+        line-height: 1;
+        animation: rotate-device 1.8s ease-in-out infinite;
+    }
+
+    .orientation-notice h1 {
+        margin: 0;
+        padding: 0;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+
+    .orientation-notice p {
+        margin: 0;
+        color: rgba(245, 245, 245, 0.8);
+        line-height: 1.5;
+    }
+}
+
+@keyframes rotate-device {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(90deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
 

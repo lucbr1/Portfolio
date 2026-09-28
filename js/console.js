@@ -3,6 +3,15 @@ function initConsoleShell() {
     const consoleRoot = document.querySelector('.console');
     if (!consoleRoot) return;
 
+    // Orientation locking is available only in specific browser contexts.
+    try {
+        if (screen.orientation?.lock) {
+            screen.orientation.lock('landscape').catch(() => {});
+        }
+    } catch (err) {
+        // CSS portrait guidance remains the fallback.
+    }
+
     const powerBtn = consoleRoot.querySelector('.power-btn');
     const screen = consoleRoot.querySelector('.screen');
     const homeBtn = consoleRoot.querySelector('.home-btn');
