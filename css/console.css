@@ -312,137 +312,162 @@ body {
     box-shadow: inset 0 0 10px rgba(0,0,0,0.7), 0 6px 10px rgba(0,0,0,0.45);
 }
 
-/* D-Pad réagrandi */
-
+/* =========================================================
+   Croix directionnelle : une seule pièce unie posée directement
+   sur le boîtier. Les 4 <span> sont des zones tactiles
+   transparentes (flèche gravée + effet d'enfoncement).
+   ========================================================= */
 .dpad {
+    --cross-body: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 132 132'%3E%3Crect x='47' y='4' width='38' height='124' rx='9'/%3E%3Crect x='4' y='47' width='124' height='38' rx='9'/%3E%3C/svg%3E");
+    --cross-face: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 132 132'%3E%3Crect x='50' y='8' width='32' height='116' rx='7'/%3E%3Crect x='8' y='50' width='116' height='32' rx='7'/%3E%3C/svg%3E");
     position: relative;
-    width: 132px;
-    height: 132px;
-    border-radius: 20px;
-    overflow: hidden;
+    width: 116px;
+    height: 116px;
+    /* pas de fond : la croix est posée directement sur le boîtier, comme les autres boutons */
+    filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.45));
 }
 
+/* Socle : liseré clair de la croix */
 .dpad::before {
     content: "";
     position: absolute;
-    inset: 12px;
-    border-radius: 14px;
+    inset: 0;
+    z-index: 0;
     pointer-events: none;
+    background: #3c4049;
+    -webkit-mask: var(--cross-body) center / 100% 100% no-repeat;
+            mask: var(--cross-body) center / 100% 100% no-repeat;
+}
+
+/* Face de la croix : aplat uni */
+.dpad::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: #23262d;
+    -webkit-mask: var(--cross-face) center / 100% 100% no-repeat;
+            mask: var(--cross-face) center / 100% 100% no-repeat;
 }
 
 .dpad span {
     position: absolute;
-    background: linear-gradient(145deg, #2f333b 0%, #15171d 55%, #0c0d11 100%);
-    box-shadow:
-        inset 0 1px 1px rgba(255,255,255,0.05),
-        inset 0 -2px 4px rgba(0,0,0,0.7),
-        inset 0 0 9px rgba(0,0,0,0.65),
-        0 3px 7px rgba(0,0,0,0.26);
-    border-radius: 11px;
-    border: 1px solid rgba(255,255,255,0.05);
-    outline: 1px solid rgba(0,0,0,0.35);
-    outline-offset: -1px;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #f0f2f6;
+    background: none;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    border-radius: 9px;
+    color: rgba(225, 229, 238, 0.6);
     font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+    font-size: 0.72rem;
+    line-height: 1;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.9), 0 1px 0 rgba(255, 255, 255, 0.1);
     cursor: pointer;
     user-select: none;
-    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, color 0.12s ease;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.12s ease, color 0.12s ease;
 }
 
 .dpad span::after {
     content: '';
-    font-size: 0.95rem;
     line-height: 1;
 }
 
 .dpad .up::after { content: '▲'; }
-.dpad .right::after { content: '►'; }
+.dpad .right::after { content: '▶'; }
 .dpad .down::after { content: '▼'; }
-.dpad .left::after { content: '◄'; }
+.dpad .left::after { content: '◀'; }
 
+/* Zones tactiles des 4 branches (en %, donc indépendantes de la taille du D-pad) */
+.dpad .up    { left: 35.6%; top: 3%;    width: 28.8%; height: 41.7%; align-items: flex-start; padding-top: 8px; }
+.dpad .down  { left: 35.6%; top: 55.3%; width: 28.8%; height: 41.7%; align-items: flex-end;   padding-bottom: 8px; }
+.dpad .left  { left: 3%;    top: 35.6%; width: 41.7%; height: 28.8%; justify-content: flex-start; padding-left: 8px; }
+.dpad .right { left: 55.3%; top: 35.6%; width: 41.7%; height: 28.8%; justify-content: flex-end;   padding-right: 8px; }
+
+/* Branche enfoncée : assombrie + flèche éclairée */
 .dpad span:active,
 .dpad span.pressed {
-    transform: translateY(2px);
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.85), 0 2px 5px rgba(0,0,0,0.4);
+    transform: none;
+    color: #fff;
+    box-shadow: none;
 }
 
-.dpad .up {
-    top: 10px;
-    left: 55px;
-    width: 22px;
-    height: 48px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
+.dpad .up:active,    .dpad .up.pressed,
+.dpad .down:active,  .dpad .down.pressed,
+.dpad .left:active,  .dpad .left.pressed,
+.dpad .right:active, .dpad .right.pressed { background: rgba(0, 0, 0, 0.35); }
 
-.dpad .down {
-    bottom: 10px;
-    left: 55px;
-    width: 22px;
-    height: 48px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.dpad .left {
-    top: 55px;
-    left: 8px;
-    width: 48px;
-    height: 22px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.dpad .right {
-    top: 55px;
-    right: 8px;
-    width: 48px;
-    height: 22px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-/* Boutons A/B/X/Y réagrandis */
+/* =========================================================
+   Boutons A / B / X / Y : même look qu'à l'origine (pastilles
+   colorées à dégradé), avec juste un peu plus de volume
+   ========================================================= */
 .abxy {
     position: relative;
     width: 120px;
     height: 120px;
     background: radial-gradient(circle at 30% 30%, #2c2f35, #0d0d0f);
     border-radius: 999px;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.55), 0 10px 18px rgba(0,0,0,0.35);
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.55),
+        inset 0 -1px 2px rgba(255, 255, 255, 0.05),
+        0 10px 18px rgba(0, 0, 0, 0.35);
 }
 
 .abxy .btn {
-    width: 36px;     /* +6px */
-    height: 36px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.25), rgba(0,0,0,0.65));
-    border-radius: 50%;
+    --c1: #888;
+    --c2: #222;
     position: absolute;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.65), 0 4px 6px rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.08);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Inter', sans-serif;
     font-size: 1.1em;
+    font-weight: 600;
     letter-spacing: 0.04em;
-    color: rgba(255,255,255,0.85);
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    background: radial-gradient(circle at 30% 30%, var(--c1), var(--c2));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.3),   /* fin reflet de bord */
+        inset 0 -3px 5px rgba(0, 0, 0, 0.4),        /* léger volume bas */
+        inset 0 0 8px rgba(0, 0, 0, 0.45),
+        0 4px 6px rgba(0, 0, 0, 0.45);
     cursor: pointer;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
     transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+/* Petit reflet discret sur le haut du bouton */
+.abxy .btn::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 8px;
+    right: 8px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+    pointer-events: none;
 }
 
 .abxy .btn:active,
 .abxy .btn.pressed {
     transform: translateY(2px);
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.85);
     filter: brightness(0.9);
+    box-shadow:
+        inset 0 0 6px rgba(0, 0, 0, 0.85),
+        0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .btn.a { top: 0; left: 42px; }
@@ -450,22 +475,15 @@ body {
 .btn.x { left: 42px; bottom: 0; }
 .btn.y { left: 0; top: 42px; }
 
-.btn.a { background: radial-gradient(circle at 30% 30%, #47d147, #0f4f0f); }
-.btn.b { background: radial-gradient(circle at 30% 30%, #ff5b5b, #4a0b0b); }
-.btn.x { background: radial-gradient(circle at 30% 30%, #54b7ff, #0c2a45); }
-.btn.y { background: radial-gradient(circle at 30% 30%, #f7d428, #4d3804); }
+.btn.a { --c1: #47d147; --c2: #0f4f0f; }
+.btn.b { --c1: #ff5b5b; --c2: #4a0b0b; }
+.btn.x { --c1: #54b7ff; --c2: #0c2a45; }
+.btn.y { --c1: #f7d428; --c2: #4d3804; }
 
 .btn.a::after { content: "A"; }
 .btn.b::after { content: "B"; }
 .btn.x::after { content: "X"; }
 .btn.y::after { content: "Y"; }
-
-.btn.a,
-.btn.b,
-.btn.x,
-.btn.y {
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-}
 
 @media (max-width: 1500px) {
     body {
@@ -723,8 +741,9 @@ body {
 
     /* Tailles explicites : les règles ≤700px réduisaient la boîte à 90px et
        rognaient les boutons, alors que leur contenu est dimensionné pour 132/120px */
-    .dpad { width: 132px; height: 132px; margin: -26px; }
+    .dpad { width: 116px; height: 116px; margin: -23px; }
     .abxy { width: 120px; height: 120px; margin: -24px; }
+    .abxy .btn { width: 36px; height: 36px; }
 
     .help-panel {
         display: none;
@@ -766,7 +785,7 @@ body {
         transform: scale(0.5);
     }
 
-    .dpad { margin: -33px; }
+    .dpad { margin: -29px; }
     .abxy { margin: -30px; }
 
     :root {
