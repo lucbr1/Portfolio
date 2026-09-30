@@ -91,6 +91,12 @@ body {
     line-height: 1.4;
 }
 
+/* Bouton "?" et croix de fermeture : uniquement en mode paysage mobile (voir plus bas) */
+.help-toggle,
+.help-close {
+    display: none;
+}
+
 .help-panel h3 {
     margin: 0 0 10px;
     font-size: 1rem;
@@ -632,6 +638,8 @@ body {
         --side-w: clamp(80px, 12vw, 120px);   /* largeur des colonnes de contrôles */
         --badge-w: 64px;                       /* largeur du badge Kastor */
         --badge-h: 22px;                       /* place réservée sous le D-pad */
+        --body-pad: 6px;                       /* marge interne du corps de la console */
+        --body-gap: 6px;                       /* espace entre colonnes et écran */
     }
 
     html,
@@ -674,8 +682,8 @@ body {
         flex-direction: row;
         align-items: stretch;
         justify-content: space-between;
-        gap: 6px;
-        padding: 6px;
+        gap: var(--body-gap);
+        padding: var(--body-pad);
         border-radius: 18px;
     }
 
@@ -745,8 +753,85 @@ body {
     .abxy { width: 120px; height: 120px; margin: -24px; }
     .abxy .btn { width: 36px; height: 36px; }
 
+    /* Aide des touches : cachée par défaut, affichée via le bouton "?" en haut à droite de l'écran */
+    .help-toggle {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        z-index: 5;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        background: rgba(12, 14, 22, 0.78);
+        color: #ffb366;
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+        -webkit-tap-highlight-color: transparent;
+        transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .help-toggle:active {
+        transform: scale(0.93);
+    }
+
+    .help-toggle[aria-expanded="true"] {
+        background: #ffb366;
+        color: #12151f;
+    }
+
     .help-panel {
         display: none;
+        z-index: 6;
+        top: calc(var(--body-pad) + 4px + 8px + 30px + 6px);
+        bottom: auto;
+        left: auto;
+        right: calc(var(--body-pad) + var(--side-w) + var(--body-gap) + 12px);
+        width: min(230px, 55%);
+        padding: 12px 14px;
+        border-radius: 14px;
+        font-size: 0.78rem;
+    }
+
+    .help-panel.is-open {
+        display: block;
+    }
+
+    .help-panel h3 {
+        margin: 0 28px 8px 0;
+        font-size: 0.85rem;
+    }
+
+    .help-panel li {
+        margin-bottom: 4px;
+    }
+
+    .help-close {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        width: 26px;
+        height: 26px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: #f5f5f5;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
     }
 
     /* Badge Kastor : coin bas-gauche, centré sous le D-pad (il a sa propre réserve
@@ -770,10 +855,11 @@ body {
         padding-bottom: 4px;
     }
 
-    .console-body {
-        padding: 4px;
-        gap: 4px;
+    :root {
+        --body-pad: 4px;
+        --body-gap: 4px;
     }
+
 
     .left-controls,
     .right-controls {

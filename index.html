@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" href="css/console.css">
     <title>Portfolio Lucas Brun</title>
     <link rel="icon" type="image/png" href="Resources/Name.webp">
@@ -34,6 +34,7 @@
 
             <div class="screen">
                 <iframe src="Screens/log.html"></iframe>
+                <button class="help-toggle" type="button" aria-label="Afficher l'aide des touches" aria-controls="help-panel" aria-expanded="false">?</button>
             </div>
 
             <div class="right-controls">
@@ -52,7 +53,8 @@
                 </div>
             </div>
 
-            <div class="help-panel" role="status" aria-live="polite">
+            <div class="help-panel" id="help-panel" role="status" aria-live="polite">
+                <button class="help-close" type="button" aria-label="Fermer l'aide">&times;</button>
                 <h3>Raccourcis pour les jeux</h3>
                 <ul>
                     <li><strong>A</strong> → Vidéo</li>

@@ -48,6 +48,32 @@ function initConsoleShell() {
     window.addEventListener('orientationchange', fitScreenContent);
     fitScreenContent();
 
+    // Aide des touches (bouton "?" visible en paysage mobile)
+    const helpToggle = consoleRoot.querySelector('.help-toggle');
+    const helpPanel = consoleRoot.querySelector('.help-panel');
+    const helpClose = consoleRoot.querySelector('.help-close');
+
+    function setHelpOpen(open) {
+        if (!helpPanel || !helpToggle) return;
+        helpPanel.classList.toggle('is-open', open);
+        helpToggle.setAttribute('aria-expanded', String(open));
+        helpToggle.setAttribute('aria-label', open ? "Masquer l'aide des touches" : "Afficher l'aide des touches");
+    }
+
+    helpToggle?.addEventListener('click', () => {
+        setHelpOpen(!helpPanel.classList.contains('is-open'));
+    });
+    helpClose?.addEventListener('click', () => setHelpOpen(false));
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') setHelpOpen(false);
+    });
+    // Un appui sur la coque de la console (hors panneau et bouton) referme aussi l'aide
+    consoleRoot.addEventListener('pointerdown', event => {
+        if (!helpPanel?.classList.contains('is-open')) return;
+        if (event.target.closest('.help-panel, .help-toggle')) return;
+        setHelpOpen(false);
+    });
+
     const powerBtn = consoleRoot.querySelector('.power-btn');
     const screen = consoleRoot.querySelector('.screen');
     const homeBtn = consoleRoot.querySelector('.home-btn');
