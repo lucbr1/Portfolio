@@ -525,7 +525,6 @@ body {
         color: #fa9939;
         font-size: 4rem;
         line-height: 1;
-        animation: rotate-device 1.8s ease-in-out infinite;
     }
 
     .orientation-notice h1 {
@@ -540,11 +539,6 @@ body {
         color: rgba(245, 245, 245, 0.8);
         line-height: 1.5;
     }
-}
-
-@keyframes rotate-device {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(90deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -616,6 +610,12 @@ body {
    tout l'espace restant entre les deux blocs de contrôles.
    ========================================================== */
 @media (max-width: 1100px) and (orientation: landscape) {
+    :root {
+        --side-w: clamp(80px, 12vw, 120px);   /* largeur des colonnes de contrôles */
+        --badge-w: 64px;                       /* largeur du badge Kastor */
+        --badge-h: 22px;                       /* place réservée sous le D-pad */
+    }
+
     html,
     body {
         width: 100%;
@@ -664,7 +664,7 @@ body {
     .left-controls,
     .right-controls {
         flex: 0 0 auto;
-        width: clamp(80px, 12vw, 120px);
+        width: var(--side-w);
         height: auto;
         align-self: stretch;
         flex-direction: column;
@@ -721,19 +721,27 @@ body {
         transform-origin: center;
     }
 
-    .dpad { margin: -26px; }
-    .abxy { margin: -24px; }
+    /* Tailles explicites : les règles ≤700px réduisaient la boîte à 90px et
+       rognaient les boutons, alors que leur contenu est dimensionné pour 132/120px */
+    .dpad { width: 132px; height: 132px; margin: -26px; }
+    .abxy { width: 120px; height: 120px; margin: -24px; }
 
     .help-panel {
         display: none;
     }
 
+    /* Badge Kastor : coin bas-gauche, centré sous le D-pad (il a sa propre réserve
+       de place en bas de la colonne gauche, donc aucun chevauchement) */
     .kastor-badge {
-        left: 50%;
         right: auto;
-        bottom: 2px;
-        width: 52px;
-        transform: translateX(-50%);
+        width: var(--badge-w);
+        left: calc(max(8px, env(safe-area-inset-left)) + 6px + (var(--side-w) - var(--badge-w)) / 2);
+        bottom: 14px;
+        transform: none;
+    }
+
+    .left-controls {
+        padding-bottom: calc(var(--badge-h) + 10px);
     }
 }
 
@@ -760,6 +768,15 @@ body {
 
     .dpad { margin: -33px; }
     .abxy { margin: -30px; }
+
+    :root {
+        --badge-w: 56px;
+        --badge-h: 20px;
+    }
+
+    .kastor-badge {
+        bottom: 10px;
+    }
 
     .screen {
         border-width: 3px;
