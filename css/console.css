@@ -676,7 +676,11 @@ body {
         overflow: hidden;
     }
 
+    /* Largeur "virtuelle" de la page affichée dans l'écran (console.js la réduit
+       ensuite à la taille réelle). Plus la valeur est grande, plus la page est
+       dézoomée : 900 = texte plus gros, 1280 = vue proche du bureau. */
     .screen {
+        --screen-virtual-width: 1024;
         order: 0;
         flex: 1 1 0;
         align-self: stretch;
@@ -700,13 +704,13 @@ body {
     }
 
     .stick {
-        width: clamp(44px, 12vh, 56px);
-        height: clamp(44px, 12vh, 56px);
+        width: clamp(58px, 18vh, 80px);
+        height: clamp(58px, 18vh, 80px);
     }
 
     .stick .stick-thumb {
-        width: 60%;
-        height: 60%;
+        width: 55%;
+        height: 55%;
     }
 
     /* transform: scale() ne réduit pas la boîte : on compense par des marges négatives */
@@ -761,4 +765,13 @@ body {
         border-width: 3px;
         border-radius: 14px;
     }
+}
+
+/* Écran : iframe dimensionnée/échelonnée par console.js en mode paysage mobile */
+.screen iframe.is-scaled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: none;
+    transform-origin: 0 0;
 }

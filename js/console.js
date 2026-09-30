@@ -12,6 +12,42 @@ function initConsoleShell() {
         // CSS portrait guidance remains the fallback.
     }
 
+    // Pages dézoomées dans l'écran en paysage mobile : l'iframe garde une taille
+    // "virtuelle" (ex. 1024px de large) puis est réduite pour tenir dans l'écran.
+    const compactMode = window.matchMedia('(max-width: 1100px) and (orientation: landscape)');
+
+    function fitScreenContent() {
+        const frame = consoleRoot.querySelector('.screen iframe');
+        const box = consoleRoot.querySelector('.screen');
+        if (!frame || !box) return;
+
+        if (!compactMode.matches) {
+            frame.classList.remove('is-scaled');
+            frame.style.width = '';
+            frame.style.height = '';
+            frame.style.transform = '';
+            return;
+        }
+
+        const virtualWidth = parseFloat(getComputedStyle(box).getPropertyValue('--screen-virtual-width')) || 1024;
+        const availW = box.clientWidth;
+        const availH = box.clientHeight;
+        if (!availW || !availH) return;
+
+        const scale = availW / virtualWidth;
+        frame.classList.add('is-scaled');
+        frame.style.width = virtualWidth + 'px';
+        frame.style.height = (availH / scale) + 'px';
+        frame.style.transform = `scale(${scale})`;
+    }
+
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(fitScreenContent).observe(consoleRoot.querySelector('.screen'));
+    }
+    window.addEventListener('resize', fitScreenContent);
+    window.addEventListener('orientationchange', fitScreenContent);
+    fitScreenContent();
+
     const powerBtn = consoleRoot.querySelector('.power-btn');
     const screen = consoleRoot.querySelector('.screen');
     const homeBtn = consoleRoot.querySelector('.home-btn');
@@ -123,8 +159,9 @@ function initConsoleShell() {
             element.appendChild(thumb);
         }
 
-        const DEADZONE = 10;      // px of leeway before we trigger
-        const MAX_OFFSET = 28;    // px thumb travel radius
+        // Seuils proportionnels à la taille réelle du stick (qui varie selon l'écran)
+        const DEADZONE_RATIO = 0.14;
+        const MAX_OFFSET_RATIO = 0.3;
         const REPEAT_MS = 260;    // how often we repeat while held
 
         let pointerId = null;
@@ -159,6 +196,8 @@ function initConsoleShell() {
             let dx = event.clientX - (rect.left + rect.width / 2);
             let dy = event.clientY - (rect.top + rect.height / 2);
             const distance = Math.hypot(dx, dy);
+            const MAX_OFFSET = rect.width * MAX_OFFSET_RATIO;
+            const DEADZONE = rect.width * DEADZONE_RATIO;
             const capped = Math.min(distance, MAX_OFFSET);
 
             if (distance > 0) {
